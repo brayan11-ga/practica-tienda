@@ -1,0 +1,116 @@
+/* =========================
+   CONTENEDOR
+========================= */
+
+.venta-table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* =========================
+   TABLA
+========================= */
+
+.venta-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+}
+
+/* =========================
+   ENCABEZADOS Y CELDAS
+========================= */
+
+.venta-table th,
+.venta-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+.venta-table th {
+  background: #f3f4f6;
+  color: #374151;
+  font-weight: 600;
+}
+
+/* =========================
+   FILAS
+========================= */
+
+.venta-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+/* =========================
+   ACCIONES
+========================= */
+
+.venta-acciones {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   BOTONES
+========================= */
+
+.venta-table button {
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* Editar */
+
+.btn-editar {
+  background: #2563eb;
+}
+
+.btn-editar:hover {
+  background: #1d4ed8;
+}
+
+/* Ver detalle */
+
+.btn-detalle {
+  background: #6b7280;
+}
+
+.btn-detalle:hover {
+  background: #4b5563;
+}
+
+/* Eliminar */
+
+.btn-eliminar-venta {
+  background: #dc2626;
+}
+
+.btn-eliminar-venta:hover {
+  background: #b91c1c;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .venta-table th,
+  .venta-table td {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .venta-acciones {
+    flex-direction: column;
+  }
+
+  .venta-table button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,109 @@
+/* =========================
+   FORMULARIO
+========================= */
+
+.producto-form {
+  width: 100%;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+
+/* =========================
+   CAMPOS
+========================= */
+
+.producto-campo {
+  margin-bottom: 18px;
+}
+
+.producto-campo label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.producto-campo input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+  font-size: 14px;
+  box-sizing: border-box;
+  background: #ffffff;
+  color: #1f2937;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.producto-campo input::placeholder {
+  color: #9ca3af;
+}
+
+.producto-campo input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* Quitar las flechas del input numérico */
+
+.producto-campo input[type='number']::-webkit-inner-spin-button,
+.producto-campo input[type='number']::-webkit-outer-spin-button {
+  opacity: 1;
+}
+
+/* =========================
+   ERROR
+========================= */
+
+.producto-error {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+  padding: 12px 15px;
+  border-radius: 7px;
+  margin: 15px 0;
+  font-size: 14px;
+}
+
+/* =========================
+   BOTÓN
+========================= */
+
+.producto-btn-guardar {
+  border: none;
+  border-radius: 7px;
+  padding: 10px 18px;
+  background: #16a34a;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.producto-btn-guardar:hover {
+  background: #15803d;
+}
+
+.producto-btn-guardar:active {
+  transform: translateY(1px);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .producto-form {
+    padding: 18px;
+  }
+}

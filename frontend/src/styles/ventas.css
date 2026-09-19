@@ -1,0 +1,72 @@
+/* =========================
+   CONTENEDOR PRINCIPAL
+========================= */
+
+.ventas-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+/* =========================
+   TÍTULO
+========================= */
+
+.ventas-container h2 {
+  margin: 0 0 25px 0;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+/* =========================
+   ESTADOS
+   Cargando / Error
+========================= */
+
+.ventas-loading,
+.ventas-error {
+  width: 100%;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 15px 20px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.ventas-loading {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.ventas-error {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* =========================
+   SEPARACIÓN ENTRE SECCIONES
+========================= */
+
+.ventas-container > form {
+  margin-bottom: 35px;
+}
+
+.ventas-container > * + * {
+  margin-top: 20px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .ventas-container {
+    padding: 20px;
+  }
+
+  .ventas-container h2 {
+    font-size: 24px;
+  }
+}

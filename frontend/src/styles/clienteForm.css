@@ -1,0 +1,84 @@
+/* =========================
+   FORMULARIO
+========================= */
+
+.cliente-form {
+  width: 100%;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+
+/* =========================
+   CAMPOS
+========================= */
+
+.cliente-campo {
+  margin-bottom: 18px;
+}
+
+.cliente-campo label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.cliente-campo input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+  font-size: 14px;
+  box-sizing: border-box;
+  background: #ffffff;
+}
+
+.cliente-campo input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+/* =========================
+   ERROR
+========================= */
+
+.cliente-error {
+  background: #fee2e2;
+  color: #991b1b;
+  padding: 12px 15px;
+  border-radius: 7px;
+  margin: 15px 0;
+}
+
+/* =========================
+   BOTÓN
+========================= */
+
+.cliente-btn-guardar {
+  border: none;
+  border-radius: 7px;
+  padding: 10px 16px;
+  background: #16a34a;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.cliente-btn-guardar:hover {
+  background: #15803d;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .cliente-form {
+    padding: 18px;
+  }
+}

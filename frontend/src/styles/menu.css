@@ -1,0 +1,18 @@
+.menu {
+  background-color: #ffffff;
+  border-bottom: 1px solid #dee2e6;
+  padding: 12px 0;
+}
+
+.menu .navbar-brand {
+  font-weight: 700;
+}
+
+.menu .nav-link {
+  color: #495057;
+  margin-left: 10px;
+}
+
+.menu .nav-link:hover {
+  color: #0d6efd;
+}
