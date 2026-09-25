@@ -8,7 +8,7 @@ import {
 } from '../../services/ventasService';
 
 import VentaTable from './VentaTable';
-import VentaForm from './ventaForm';
+import VentaForm from './VentaForm';
 
 import '../../styles/ventas.css';
 
