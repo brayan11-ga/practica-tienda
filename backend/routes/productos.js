@@ -69,16 +69,16 @@ router.put('/:id', async function(req, res) {
 
         const id_producto = req.params.id;
 
-        const { nomproducto, stock, precio } = req.body;
+        const { nomProducto, stock, precio } = req.body;
 
         const result = await pool.query(
             `UPDATE productos
-            SET "nomproducto" = $1,
+            SET "nomProducto" = $1,
                 stock = $2,
                 precio = $3
             WHERE id_producto = $4
             RETURNING *`,
-            [nomproducto, stock, precio, id_producto]
+            [nomProducto, stock, precio, id_producto]
         );
 
         if (result.rows.length === 0) {
