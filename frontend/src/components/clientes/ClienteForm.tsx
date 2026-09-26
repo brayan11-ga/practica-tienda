@@ -10,11 +10,14 @@ import '../../styles/clienteForm.css';
 
 interface ClienteFormProps {
   onClienteCreado: () => void;
+  onCancelar: () => void;
   clienteEditando: Cliente | null;
+
 }
 
 function ClienteForm({
   onClienteCreado,
+  onCancelar,
   clienteEditando
 }: ClienteFormProps) {
   const [formulario, setFormulario] = useState({
@@ -171,7 +174,15 @@ function ClienteForm({
           ? 'Actualizar cliente'
           : 'Crear cliente'}
       </button>
-    </form>
+
+      <button
+      type="button"
+      className="cliente-btn-cancelar"
+      onClick={onCancelar}
+      >
+      Cancelar
+      </button>
+      </form>
   );
 }
 

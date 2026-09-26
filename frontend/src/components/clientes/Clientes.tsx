@@ -8,72 +8,87 @@ import {
 
 import ClienteTable from './ClienteTable';
 import ClienteForm from './ClienteForm';
+import VentaModal from '../ventas/VentaModal';
 
 import '../../styles/clientes.css';
 
 function Clientes() {
-
   const [clientes, setClientes] = useState<Cliente[]>([]);
-
   const [cargando, setCargando] = useState<boolean>(true);
-
   const [error, setError] = useState<string | null>(null);
 
-  const [clienteEditando, setClienteEditando] = useState<Cliente | null>(null);
+  const [clienteEditando, setClienteEditando] =
+    useState<Cliente | null>(null);
+
+  const [mostrarFormulario, setMostrarFormulario] =
+    useState(false);
 
   const cargarClientes = async () => {
-
     try {
-
       const data = await obtenerClientes();
 
       setClientes(data);
+      setError(null);
 
     } catch (error) {
-
-      setError('No se pudo cargar la lista de clientes');
+      setError(
+        'No se pudo cargar la lista de clientes'
+      );
 
       console.error(error);
 
     } finally {
-
       setCargando(false);
-
     }
-
   };
 
   useEffect(() => {
-
     cargarClientes();
-
   }, []);
 
   const handleEliminar = async (id: number) => {
+    const confirmar = window.confirm(
+      '¿Está seguro de eliminar este cliente?'
+    );
 
-  const confirmar = window.confirm(
-    '¿Está seguro de eliminar este cliente?'
-  );
+    if (!confirmar) {
+      return;
+    }
 
-  if (!confirmar) {
-    return;
-  }
+    try {
+      await eliminarCliente(id);
+      await cargarClientes();
 
-  try {
+    } catch (error) {
+      console.error(error);
 
-    await eliminarCliente(id);
+      setError(
+        'No se pudo eliminar el cliente'
+      );
+    }
+  };
+
+  const handleAgregar = () => {
+    setClienteEditando(null);
+    setMostrarFormulario(true);
+  };
+
+  const handleEditar = (cliente: Cliente) => {
+    setClienteEditando(cliente);
+    setMostrarFormulario(true);
+  };
+
+  const handleClienteGuardado = async () => {
+    setMostrarFormulario(false);
+    setClienteEditando(null);
 
     await cargarClientes();
+  };
 
-  } catch (error) {
-
-    console.error(error);
-
-    setError('No se pudo eliminar el cliente');
-
-  }
-
-};
+  const handleCancelar = () => {
+    setMostrarFormulario(false);
+    setClienteEditando(null);
+  };
 
   if (cargando) {
     return <p>Cargando clientes...</p>;
@@ -86,18 +101,47 @@ function Clientes() {
   return (
     <div className="clientes">
 
-      <h2>Listado de Clientes</h2>
+      <div className="clientes-header">
 
-      <ClienteForm
-        onClienteCreado={cargarClientes}
-        clienteEditando={clienteEditando}
-      />
+        <div>
+          <h2>Listado de Clientes</h2>
+
+          <p>
+            Administra los clientes registrados.
+          </p>
+        </div>
+
+        <button
+          type="button"
+          className="cliente-btn-agregar"
+          onClick={handleAgregar}
+        >
+          + Agregar cliente
+        </button>
+
+      </div>
 
       <ClienteTable
         clientes={clientes}
-        onEditar={setClienteEditando}
+        onEditar={handleEditar}
         onEliminar={handleEliminar}
       />
+
+      <VentaModal
+        abierto={mostrarFormulario}
+        onCerrar={handleCancelar}
+        titulo={
+          clienteEditando
+            ? 'Editar cliente'
+            : 'Agregar cliente'
+        }
+      >
+        <ClienteForm
+          onClienteCreado={handleClienteGuardado}
+          onCancelar={handleCancelar}
+          clienteEditando={clienteEditando}
+        />
+      </VentaModal>
 
     </div>
   );

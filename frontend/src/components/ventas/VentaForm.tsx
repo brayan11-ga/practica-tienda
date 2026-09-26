@@ -480,15 +480,13 @@ function VentaForm({
           : 'Crear venta'}
       </button>
 
-      {ventaEditando && (
-        <button
-          type="button"
-          className="btn-cancelar"
-          onClick={onCancelarEdicion}
+      <button
+        type="button"
+        className="btn-cancelar"
+        onClick={onCancelarEdicion}
         >
-          Cancelar
+        Cancelar
         </button>
-      )}
     </form>
   );
 }

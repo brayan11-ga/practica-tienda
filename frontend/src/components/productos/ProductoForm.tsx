@@ -10,11 +10,13 @@ import '../../styles/productoForm.css';
 
 interface ProductoFormProps {
   onProductoGuardado: () => void;
+  onCancelar: () => void;
   productoEditando: Producto | null;
 }
 
 function ProductoForm({
   onProductoGuardado,
+  onCancelar,
   productoEditando
 }: ProductoFormProps) {
   const [formulario, setFormulario] = useState({
@@ -174,13 +176,21 @@ function ProductoForm({
       )}
 
       <button
-        type="submit"
-        className="producto-btn-guardar"
-      >
-        {productoEditando
-          ? 'Actualizar producto'
-          : 'Crear producto'}
-      </button>
+  type="submit"
+  className="producto-btn-guardar"
+>
+  {productoEditando
+    ? 'Actualizar producto'
+    : 'Crear producto'}
+</button>
+
+<button
+  type="button"
+  className="producto-btn-cancelar"
+  onClick={onCancelar}
+>
+  Cancelar
+</button>
     </form>
   );
 }
