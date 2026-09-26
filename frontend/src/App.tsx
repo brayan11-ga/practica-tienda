@@ -5,6 +5,7 @@ import Clientes from './components/clientes/Clientes';
 import Productos from './components/productos/Productos.tsx';
 import Ventas from './components/ventas/Ventas.tsx';
 import DetalleVenta from './components/ventas/DetalleVenta.tsx';
+import Inicio from './components/Inicio';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Menu />
 
       <Routes>
+        <Route path="/" element={<Inicio />} />
         <Route path="/clientes" element={<Clientes />} />
         <Route path="/productos" element={<Productos />} />
         <Route path="/ventas" element={<Ventas />} />
